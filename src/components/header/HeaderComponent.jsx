@@ -10,7 +10,7 @@ const HeaderComponent = () => {
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/Home" className="flex items-center">
                         <CgBolt size={26} color="orange" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Luisao Tiktok</span>
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LM</span>
                     </Link>
                     <div className="flex items-center lg:order-2">
                         <a href="#" className="text-gray-800 dark:text-white hover:bg-blue-500 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>

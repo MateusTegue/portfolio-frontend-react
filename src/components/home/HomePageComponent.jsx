@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from 'framer-motion';
-import Imagen from "../../images/descarga.png"
+import Imagen from "../../images/PerfilImage.png"
 import DataAnalitic from "../../images/DataAnalitic.png"
 import DisenioGrafico from "../../images/DiseñoGrafico.jpg"
 import DesarrolloWeb from "../../images/DesarrolloWeb.jpeg"
@@ -48,11 +48,11 @@ const HomePageComponent = () => {
                     ) : (
                     <>
                         <div>
-                            <img src={Imagen} alt="imagen de perfil" />
+                            <img src={Imagen} alt="imagen de perfil" className="w-[160px] h-[150px] object-cover rounded-full" />
                         </div>
                         <div>
-                            <h1 className="text-2xl font-bold">Luisao Tiktok</h1>
-                            <p className="text-x">Lorem, ipsum dolor sit amet consectetur adipisicing elit.Consectetur repellendus cupiditate pariatur ipsum dolor sit ametconsectetur adipisicing elit. Consectetur repellendus cupiditatepariatur ipsum dolor sit amet consectetur adipisicing elit.Consectetur repellendus cupiditate pariatur illo ex officia iuremaiores hic est, neque, exercitationem quae, eveniet aliquidsuscipit corporis dolorum alias! Aliquid, eveniet!</p>
+                            <h1 className="text-2xl font-bold">Mateus Tegue</h1>
+                            <p className="text-x">Soy Técnico y Tecnólogo en Desarrollo de Software, con una fuerte orientación hacia el desarrollo web full-stack. Me apasiona explorar y aplicar tecnologías modernas para construir soluciones eficientes y escalables. Mi enfoque combina la lógica del backend con una atención cuidada al frontend, utilizando herramientas ampliamente reconocidas en la industria. Además, me interesa el análisis de datos, área en la que aplico herramientas como Python, Excel y Power BI para extraer valor de la información. También cuento con experiencia en soporte técnico y mantenimiento de hardware, incluyendo instalación de sistemas operativos, diagnóstico y reparación de equipos. En mi tiempo libre, desarrollo habilidades artísticas relacionadas con el diseño gráfico, especialmente a través del dibujo de anime, lo cual fortalece mi visión creativa y estética en el desarrollo de interfaces.</p>
                         </div>
                     </>)}
                 </article>
