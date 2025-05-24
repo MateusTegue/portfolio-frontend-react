@@ -1,0 +1,40 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+}
+
+.logo{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 10px;
+
+}
+
+
+nav {
+    margin-right: 20px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.nav-link{
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+}
+
+
