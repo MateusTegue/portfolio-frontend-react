@@ -48,7 +48,7 @@ const HomePageComponent = () => {
                     ) : (
                     <>
                         <div>
-                            <img src={Imagen} alt="imagen de perfil" className="w-[160px] h-[150px] object-cover rounded-full" />
+                            <img src={Imagen} alt="imagen de perfil" className="w-[160px] h-[150px] object-cover rounded-full grayscale-50 ..." />
                         </div>
                         <div>
                             <h1 className="text-2xl font-bold">Mateus Tegue</h1>
