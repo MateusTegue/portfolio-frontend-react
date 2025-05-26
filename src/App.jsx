@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 import ProjectsPage from "./pages/ProjectPage";
 import CertificationsPage from "./pages/CertificationsPages";
 import AboutPage from "./pages/AboutPage";
@@ -28,8 +29,9 @@ const AnimatedRoutes = () => {
       <Routes key={location.pathname} location={location}>
         <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
         <Route path="/Home" element={<PageWrapper><HomePage /></PageWrapper>} />
+        <Route path="/Login" element={<PageWrapper><LoginPage /></PageWrapper>} />
         <Route path="/Projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
-        <Route path="/Certificatios" element={<PageWrapper><CertificationsPage /></PageWrapper>} />
+        <Route path="/Educacion" element={<PageWrapper><CertificationsPage /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
         {/* ...más rutas */}
       </Routes>

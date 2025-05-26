@@ -35,7 +35,7 @@ const HomePageComponent = () => {
       }, []);
 
     return (
-        <main className="container mx-auto  flex">
+        <main className="container mx-auto mt-20 flex">
             <section className="w-[80%]  p-4 rounded-lg">
                 <article className=" p-4 rounded-lg mb-4">
                     {loading ? (
