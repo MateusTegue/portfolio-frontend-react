@@ -57,7 +57,7 @@ const ProjectsComponent = () => {
                       )}
                       <div className="px-6 py-4">
                         <div className="font-bold text-2sm mb-2">{project.titulo}</div>
-                        <p className="text-gray-700 text-base">{project.descripcion}</p>
+                        <p className="text-gray-700 text-base">{project.descripcion.slice(0, 20)}...</p>
                         <p className="text-sm text-gray-500 mt-1">{new Date(project.fecha).toLocaleDateString()}</p>
                       </div>
                       <div className="flex-grow"></div>
