@@ -5,11 +5,29 @@ import DataAnalitic from "../../images/DataAnalitic.png"
 import DisenioGrafico from "../../images/DiseñoGrafico.jpg"
 import DesarrolloWeb from "../../images/DesarrolloWeb.jpeg"
 import { getNoticias } from "../../api/newsApi";
-//import "./HomePageComponent.css"
-// HomePageComponent is the main component for the home page    
+import { getPerfil } from "../../api/perfil";
 const HomePageComponent = () => {
     const [loading, setLoading] = useState(true);
     const [noticias, setNoticias] = useState([]);
+    const [perfil, setPerfil] = useState(null);
+
+    
+    // useEffect para el carge del perfil
+ useEffect(() => {
+    const getPerfilData = async () => {
+      try {
+        const dataPerfil = await getPerfil();
+        console.log("Perfil recibido:", dataPerfil); // 👉 LOG IMPORTANTE
+        setPerfil(dataPerfil[0]);
+      } catch (err) {
+        console.error("Error fetching perfil:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getPerfilData();
+}, []);
+
 
     // useEfeect para el carge de las noticias
     useEffect(() => {
@@ -34,6 +52,18 @@ const HomePageComponent = () => {
         return () => clearTimeout(timer);
       }, []);
 
+
+
+    const getRandomColor = () => {
+    const colors = [
+    'bg-blue-400'
+    ];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+  };
+
+
+
     return (
         <main className="container mx-auto mt-20 flex">
             <section className="w-[80%]  p-4 rounded-lg">
@@ -48,11 +78,23 @@ const HomePageComponent = () => {
                     ) : (
                     <>
                         <div>
-                            <img src={Imagen} alt="imagen de perfil" className="w-[160px] h-[150px] object-cover rounded-full grayscale-50 ..." />
+                           {perfil.imagen && perfil.imagen.data ? (
+                              <img
+                                className="w-[150px] h-[150px] object-cover rounded-lg grayscale-50"
+                                src={`data:${perfil.imagen.contentType};base64,${Buffer.from(perfil.imagen.data).toString('base64')}`}
+                                alt={perfil.nombre}
+                              />
+                            ) : (
+                              <div
+                                className={`w-[150px] h-[150px] flex items-center justify-center rounded-full text-white text-3xl font-bold ${getRandomColor()}`}
+                              >
+                                {perfil.nombre?.slice(0, 1).toUpperCase() || "NA"}
+                              </div>
+                            )}
                         </div>
                         <div>
-                            <h1 className="text-2xl font-bold">Mateus Tegue</h1>
-                            <p className="text-x">Soy Técnico y Tecnólogo en Desarrollo de Software, con una fuerte orientación hacia el desarrollo web full-stack. Me apasiona explorar y aplicar tecnologías modernas para construir soluciones eficientes y escalables. Mi enfoque combina la lógica del backend con una atención cuidada al frontend, utilizando herramientas ampliamente reconocidas en la industria. Además, me interesa el análisis de datos, área en la que aplico herramientas como Python, Excel y Power BI para extraer valor de la información. También cuento con experiencia en soporte técnico y mantenimiento de hardware, incluyendo instalación de sistemas operativos, diagnóstico y reparación de equipos. En mi tiempo libre, desarrollo habilidades artísticas relacionadas con el diseño gráfico, especialmente a través del dibujo de anime, lo cual fortalece mi visión creativa y estética en el desarrollo de interfaces.</p>
+                            <h1 className="text-2xl font-bold">{perfil.nombre}</h1>
+                            <p className="text-x">{perfil.descripcion}</p>
                         </div>
                     </>)}
                 </article>
