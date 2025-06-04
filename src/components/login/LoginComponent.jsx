@@ -42,24 +42,24 @@ const LoginComponent = () => {
         <main className='min-h-screen flex items-center justify-center m-0 p-0'>
             <section className='w-full max-w-6xl flex flex-col md:flex-row items-center gap-8  '>
                 <article className='w-full md:w-1/2 flex justify-center'>
-                    <div className='w-full max-w-md'> 
+                    {/* <div className='w-full max-w-md'> 
                         <img src={inagenLogin} alt="Imagen de login" className='w-full h-auto object-cover rounded-lg'/>
-                    </div>
+                    </div> */}
                 </article>
-                <article className='w-98 p-4 m-auto'>
+                <article className='w-98 p-4 m-auto bg-gray-900 text-white rounded-lg shadow-lg'>
                     <div className='flex flex-col items-center justify-center mb-10'>
                         <img src={adminIcon} alt="Admin Icon" className="w-24 rounded-full m-0" />
                         <h2 className='font-bold ...'>Panel de Administrador</h2>
                     </div>
                     <div className=" ">
-                        <form onSubmit={handleLogin}  className="login-form">
-                            <div className="mb-8 border-b border-black flex items-center">
+                        <form onSubmit={handleLogin}  className="login-form ">
+                            <div className="mb-8 border-b border-white flex items-center">
                                 <SlEnvolope className='mr-2 text-3xl' />
-                                <input type="email" placeholder="Email" className='border-0 w-full focus:outline-none' required value={email} onChange={(e)=> setEmail(e.target.value)}/>
+                                <input type="email" placeholder="Email" className='border-0 w-full focus:outline-none  bg-gray-900 text-white' required value={email} onChange={(e)=> setEmail(e.target.value)}/>
                             </div>
-                            <div className="mb-14 border-b border-black flex items-center">
+                            <div className="mb-14 border-b border-white flex items-center">
                                 <SlLock className='mr-2 text-3xl' />
-                                <input type={showPassword ? "text" : "password"}  placeholder="Password" className='border-0 w-full focus:outline-none'  required value={password} onChange={(e) => setPassword(e.target.value)}/>
+                                <input type={showPassword ? "text" : "password"}  placeholder="Password" className='border-0 w-full focus:outline-none  bg-gray-900 text-white'  required value={password} onChange={(e) => setPassword(e.target.value)}/>
                                 <button type="button" onClick={() => setShowPassword(!showPassword)} className="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none">
                                   {showPassword ? '👁️' : '👁️‍🗨️'}
                                 </button>

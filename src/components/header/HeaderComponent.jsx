@@ -5,15 +5,15 @@ import { CgBolt } from "react-icons/cg";
 
 const HeaderComponent = () => {
     return (
-        <header className="fixed top-0 left-0 w-full  bg-white shadow-md z-50">
+        <header className="fixed top-0 left-0 w-full  bg-black text-cyan-50 shadow-md z-50">
             <nav className="bg-black-100 border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/Home" className="flex items-center">
                         <CgBolt size={26} color="orange" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Compilando Ideas</span>
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LM</span>
                     </Link>
                     <div className="flex items-center lg:order-2">
-                        <Link to="/Login" className="text-gray-800 dark:text-white hover:bg-blue-500 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-gray-800">Login</Link>
+                        <Link to="/Login" className="bg-blue-500 text-cyan-50 dark:text-white hover:bg-blue-500 focus:ring-4  font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-gray-800">Login</Link>
                         <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
                             <span className="sr-only">Open main menu</span>
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
@@ -23,23 +23,61 @@ const HeaderComponent = () => {
                     <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                         <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                             <li>
-                                <Link to="/Home" className="nav-link">Inicio</Link>
+                                <div className="relative group">
+                                <Link to="/Home">
+                                    Inicio
+                                </Link>
+                                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                                </div>
                             </li>
                             <li>
-                                <Link to="/Projects" className="nav-link">Proyectos</Link>
+                                <div className="relative group">
+                                <Link to="/Projects">
+                                    Proyectos
+                                </Link>
+                                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                                </div>
                             </li>
                             <li>
-                                <Link to="/Educacion" className="nav-link">Educacion</Link>
+                                <div className="relative group">
+                                <Link to="/Educacion">
+                                    Educación
+                                </Link>
+                                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                                </div>
+                            </li>
+                            {/* <li>
+                                <div className="relative group">
+                                    <li>
+                                      <Link to="/Experiences" className="nav-link">Experiencia</Link>
+                                    </li> 
+                                    <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+                                </div>
+                            </li> */}
+                            <li>
+                                <div className="relative group">
+                                <Link to="/about">
+                                    Blog
+                                </Link>
+                                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                                </div>
                             </li>
                             <li>
-                                <Link to="/Experiences" className="nav-link">Experiencia</Link>
+                                <div className="relative group">
+                                    <li>
+                                      <Link to="/Experiences">Experiencia</Link>
+                                    </li> 
+                                    <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                                </div>
                             </li>
-                            <li>
-                                <Link to="/about" className="nav-link">Blog</Link>
-                            </li>
-                            <li>
-                                <a href="#" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Mas Info</a>
-                            </li>
+                            {/* <li>
+                                <div className="relative group">
+                                    <li>
+                                      <Link to="/masInformacion" className="nav-link">Mas Informacion</Link>
+                                    </li> 
+                                    <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+                                </div>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
@@ -50,6 +88,12 @@ const HeaderComponent = () => {
 
 export default HeaderComponent;
 
+                          
+                           
+                            <li>
+                                <a href="#" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Mas Info</a>
+                            </li> 
+                     
 
 
 

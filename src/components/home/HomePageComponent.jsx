@@ -66,7 +66,7 @@ const HomePageComponent = () => {
 
     return (
         <main className="container mx-auto mt-20 flex">
-            <section className="w-[80%]  p-4 rounded-lg">
+            <section className="w-[80%]  p-4 ">
                 <article className=" p-4 rounded-lg mb-4">
                     {loading ? (
                     <div className="animate-pulse">
@@ -119,9 +119,9 @@ const HomePageComponent = () => {
                     )}
                 </article>
             </section>
-            <aside className="w-[20%] bg-white p-4 border-l border-gray-300">
+            <aside className="w-[20%] p-4 border-l border-blue-500">
                 {noticias.map((n, i) => (
-                    <motion.div key={i} className="mb-4 bg-gray-50 p-4 " initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1, duration: 0.3 }}>
+                    <motion.div key={i} className="mb-4  p-4 bg-gray-900 text-white  " initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1, duration: 0.3 }}>
                     <a href={n.link} target="_blank" rel="noopener noreferrer" className="block">{n.image_url && (
                         <img src={n.image_url} alt={n.title} className="w-full h-20 object-cover  mb-2" /> )}
                         <hr />

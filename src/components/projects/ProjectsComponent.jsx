@@ -37,12 +37,11 @@ const ProjectsComponent = () => {
 
 
     return (
-        <section className="w-full px-4 py-8 bg-gray-100 mt-32">
-            <div className="mx-auto max-w-7xl">
+        <section className="mx-auto max-w-7xl px-4 py-8  shadow-lg  mt-32">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {projects.map((project) => (
-                  <div key={project._id} className="flex justify-center rounded-lg">
-                    <div className="w-full max-w-xs rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div key={project._id} className="flex justify-center">
+                    <div className="w-full max-w-xs overflow-hidden border border-blue-500 rounded-sm shadow-lg hover:shadow-xl transition-shadow duration-300">
                       {/* Si la imagen está en base64 o URL, muestra así: */}
                       {project.imagen?.data ? (
                         <img
@@ -73,7 +72,6 @@ const ProjectsComponent = () => {
                   <p className="col-span-full text-center py-10">No hay proyectos para mostrar.</p>
                 )}
               </div>
-            </div>
           </section>
     )
 }

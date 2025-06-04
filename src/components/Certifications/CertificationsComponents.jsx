@@ -33,12 +33,12 @@ const CertificationsComponent = () => {
     }
 
 return (
-    <section className="w-full px-4 py-8 bg-gray-100 mt-32">
+    <section className="w-full px-4 py-8 mt-24">
          <div className="mx-auto max-w-7xl">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {certifications.map(certification => (
                     <div key={certification._id} className="flex justify-center rounded-lg">
-                        <div className="w-full max-w-xs rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div className="w-full max-w-xs border border-blue-500 rounded-sm overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                             {certification.imagen?.data ? (
                                 <img
                                     className="w-full h-48 object-cover"

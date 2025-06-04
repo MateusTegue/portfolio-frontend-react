@@ -6,9 +6,9 @@ import { BsLinkedin, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-
 
 const FooterComponent = () => {
         return (
-            <Footer bgDark className="bg-gray-800 rounded-none mt-auto">
+            <Footer bgDark className="bg-black-800 rounded-none mt-auto">
               <div className="w-full">
-                <div className="w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between">
+                <div className="w-full bg-black-800 px-4 py-6 sm:flex sm:items-center sm:justify-between">
                   <FooterCopyright href="#" by="Mateus™" year={2025} />
                   <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
                     <FooterIcon href="#" icon={BsFacebook} />
