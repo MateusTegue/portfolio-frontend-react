@@ -64,7 +64,7 @@ const LoginComponent = () => {
                                   {showPassword ? '👁️' : '👁️‍🗨️'}
                                 </button>
                             </div>
-                            <button type="submit"  onClick={() => setShowPassword(!showPassword)} className="bg-blue-500 text-white block w-full p-2 rounded-2xl">Iniciar Sesion</button>
+                            <button type="submit"  onClick={() => setShowPassword(!showPassword)} className="bg-cyan-500 hover:bg-cyan-600 text-white block w-full p-2 rounded-2xl">Iniciar Sesion</button>
                         </form>
                     </div>
                 </article>

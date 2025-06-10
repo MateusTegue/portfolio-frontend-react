@@ -47,16 +47,9 @@ const HomePageComponent = () => {
         );
       }
 
-      useEffect(() => {
-        const timer = setTimeout(() => setLoading(false), 2000);
-        return () => clearTimeout(timer);
-      }, []);
-
-
-
     const getRandomColor = () => {
     const colors = [
-    'bg-blue-400'
+    'bg-blue-900'
     ];
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];
@@ -65,11 +58,11 @@ const HomePageComponent = () => {
 
 
     return (
-        <main className="container mx-auto mt-20 flex">
-            <section className="w-[80%]  p-4 ">
-                <article className=" p-4 rounded-lg mb-4">
+        <main className="container mx-auto">
+            <section className="  mx-auto ">
+                <article className="flex flex-col-reverse md:flex-row  items-center gap-4 rounded-lg shadow-md justify-between">
                     {loading ? (
-                    <div className="animate-pulse">
+                    <div className="animate-pulse w-full">
                         <div className="h-24 bg-gray-300 rounded-md mb-4" />
                         <div className="h-6 bg-gray-300 rounded w-1/2 mb-2" />
                         <div className="h-4 bg-gray-300 rounded w-full mb-1" />
@@ -77,28 +70,37 @@ const HomePageComponent = () => {
                     </div>
                     ) : (
                     <>
-                        <div>
-                           {perfil.imagen && perfil.imagen.data ? (
-                              <img
-                                className="w-[150px] h-[150px] object-cover rounded-lg grayscale-50"
-                                src={`data:${perfil.imagen.contentType};base64,${Buffer.from(perfil.imagen.data).toString('base64')}`}
-                                alt={perfil.nombre}
-                              />
-                            ) : (
-                              <div
-                                className={`w-[150px] h-[150px] flex items-center justify-center rounded-full text-white text-3xl font-bold ${getRandomColor()}`}
-                              >
-                                {perfil.nombre?.slice(0, 1).toUpperCase() || "NA"}
-                              </div>
-                            )}
-                        </div>
-                        <div>
-                            <h1 className="text-2xl font-bold">{perfil.nombre}</h1>
+                         <div className="w-full md:w-1/2 text-center md:text-left">
+                            <h1 className="text-4xl font-bold font-poppins text-white">I'm <span className="text-cyan-400">{perfil.nombre}</span></h1>
                             <p className="text-x">{perfil.descripcion}</p>
+                              <a href="/cv.pdf" download="cv.pdf" className="mt-2 px-4 py-2 bg-cyan-500 text-white rounded-3xl hover:bg-cyan-600 transition-colors inline-block">
+                              Descargar CV
+                            </a>
                         </div>
+                        <div className="w-full sm:w-1/2 flex justify-center">
+                        {perfil ? (
+                          perfil.imagen?.data ? (
+                            <img
+                              className="w-[250px] md:w-[400px] h-[350px] md:h-[550px] object-cover rounded-lg border-4 border-cyan-500"
+                              src={`data:${perfil.imagen.contentType};base64,${btoa(
+                                String.fromCharCode(...perfil.imagen.data.data)
+                              )}`}
+                              alt={perfil.nombre}
+                            />
+                          ) : (
+                            <img
+                              className="w-[250px] md:w-[400px] h-[350px] md:h-[550px] object-cover rounded-lg border-4 border-cyan-500"
+                              src={Imagen}
+                              alt="Imagen por defecto"
+                            />
+                          )
+                        ) : (
+                          <div className="h-[150px] w-[150px] bg-gray-300 rounded-full animate-pulse"></div>
+                        )}
+                      </div>
                     </>)}
                 </article>
-                <article className="p-4 rounded-lg mb-4 grid grid-flow-col grid-rows-3 gap-4 ">
+                {/* <article className="p-4 rounded-lg mb-4 grid grid-flow-col grid-rows-3 gap-4 ">
                     {loading ? (
                     <div className="animate-pulse space-y-2">
                         <div className="h-6 bg-gray-300 rounded w-3/4" />
@@ -117,9 +119,9 @@ const HomePageComponent = () => {
                       </div>
                     </>
                     )}
-                </article>
+                </article> */}
             </section>
-            <aside className="w-[20%] p-4 border-l border-blue-500">
+            {/* <aside className="w-[20%] p-4 border-l border-blue-500">
                 {noticias.map((n, i) => (
                     <motion.div key={i} className="mb-4  p-4 bg-gray-900 text-white  " initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1, duration: 0.3 }}>
                     <a href={n.link} target="_blank" rel="noopener noreferrer" className="block">{n.image_url && (
@@ -130,7 +132,7 @@ const HomePageComponent = () => {
                     </a>
                     </motion.div>
                 ))}
-            </aside>
+            </aside> */}
         </main>
     );
 };

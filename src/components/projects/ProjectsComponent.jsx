@@ -41,7 +41,7 @@ const ProjectsComponent = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {projects.map((project) => (
                   <div key={project._id} className="flex justify-center">
-                    <div className="w-full max-w-xs overflow-hidden border border-blue-500 rounded-sm shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="w-full max-w-xs overflow-hidden  rounded-sm shadow-lg hover:shadow-xl transition-shadow duration-300">
                       {/* Si la imagen está en base64 o URL, muestra así: */}
                       {project.imagen?.data ? (
                         <img
@@ -61,7 +61,7 @@ const ProjectsComponent = () => {
                       </div>
                       <div className="flex-grow"></div>
                       <div className="text-center">
-                          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-none transition-colors duration-300">
+                          <button className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 rounded-none transition-colors duration-300">
                               <a href={project.url} target="_blank" rel="noopener noreferrer" > Ver más</a>         
                           </button>
                       </div>
