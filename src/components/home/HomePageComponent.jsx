@@ -130,15 +130,20 @@ if (error) {
                         </div>
                       ) : (
                         <>
-                          <div className="max-w-xl md:w-1/2 text-center md:text-left">
-                            <h1 className="text-4xl font-bold font-poppins text-white">
+                          <div className="w-full max-w-xl px-4 sm:px-6 md:w-1/2 text-center md:text-left">
+                            <h1 className="text-3xl sm:text-4xl font-bold font-poppins text-white">
                               I'm <span className="text-cyan-400">{perfil.nombre}</span>
                             </h1>
-                            <p title={perfil.descripcion} className="text-xl  font-sans text-white">{truncateText(perfil.descripcion, 400)}</p>
+                            <p
+                              title={perfil.descripcion}
+                              className="text-base sm:text-lg font-sans text-white mt-2"
+                            >
+                              {truncateText(perfil.descripcion, 400)}
+                            </p>
                             <a
                               href="/cv.pdf"
                               download="cv.pdf"
-                              className="mt-2 px-4 py-2 bg-cyan-500 text-white rounded-3xl hover:bg-cyan-600 transition-colors inline-block"
+                              className="mt-4 px-4 py-2 bg-cyan-500 text-white rounded-3xl hover:bg-cyan-600 transition-colors inline-block"
                             >
                               Descargar CV
                             </a>
