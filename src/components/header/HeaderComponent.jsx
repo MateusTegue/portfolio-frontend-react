@@ -19,7 +19,7 @@ const HeaderComponent = () => {
                           <span className="sr-only">Open main menu</span>
                             {/* Ícono de hamburguesa */}
                             <svg
-                                className={`${isOpen ? "hidden" : "block"} w-6 h-6`}
+                                className={`${isOpen ? "hidden" : "block"} w-6 h-5`}
                                 fill="currentColor"
                                 viewBox="0 0 20 20"
                             >
@@ -31,7 +31,7 @@ const HeaderComponent = () => {
                             </svg>
                             {/* Ícono de cerrar */}
                             <svg
-                                className={`${isOpen ? "block" : "hidden"} w-6 h-6`}
+                                className={`${isOpen ? "block" : "hidden"} w-6 h-5`}
                                 fill="currentColor"
                                 viewBox="0 0 20 20"
                             >
