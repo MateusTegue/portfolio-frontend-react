@@ -44,7 +44,7 @@ const HeaderComponent = () => {
                         </button>
                     </div>
                     <div className={`${isOpen ? "block bg-cyan-500": "hidden"} w-full lg:flex lg:w-auto lg:order-1`} id="mobile-menu-2">
-                    <ul className="flex flex-col space-y-4 m-4 mt-4 lg:mt-0 lg:flex-row lg:space-y-0 lg:space-x-8 font-medium">
+                    <ul className="flex flex-col space-y-4 m-4 mt-4 lg:mt-0 lg:flex-row lg:space-y-0 lg:space-x-8 font-bold font-poppins">
                         <li>
                         <Link to="/Home" className="block text-white hover:text-cyan-400 transition">
                             Inicio

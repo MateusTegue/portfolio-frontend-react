@@ -14,7 +14,7 @@ const FooterComponent = () => {
                     <FooterIcon href="#" icon={BsFacebook} className="text-blue-500 hover:text-blue-700" />
                     <FooterIcon href="#" icon={BsInstagram} className="text-pink-500 hover:text-pink-700" />
                     <FooterIcon href="#" icon={BsTwitter} className="text-blue-400 hover:text-blue-600" />
-                    <FooterIcon href="#" icon={BsGithub} className="text-gray-600 hover:text-gray-800" />
+                    <FooterIcon href="https://github.com/MateusTegue" target="_blank" icon={BsGithub} className="text-gray-600 hover:text-gray-800" />
                     <FooterIcon href="https://www.linkedin.com/in/mateus-tegue/" target="_blank" icon={BsLinkedin} className="text-blue-500 hover:text-blue-700" />
                   </div>
                 </div>

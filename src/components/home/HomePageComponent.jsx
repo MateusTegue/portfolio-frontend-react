@@ -7,21 +7,48 @@ import DesarrolloWeb from "../../images/DesarrolloWeb.jpeg"
 import { getNoticias } from "../../api/newsApi";
 import { getPerfil } from "../../api/perfil";
 import { ClimbingBoxLoader, PropagateLoader, PacmanLoader } from "react-spinners";
+import { FaExclamationTriangle } from "react-icons/fa";
 
 const HomePageComponent = () => {
     const [loading, setLoading] = useState(true);
     const [noticias, setNoticias] = useState([]);
     const [perfil, setPerfil] = useState(null);
     const [error, setError] = useState(null);
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    const truncateText = (text, maxLength) => {
+      if (!text) return "";
+      return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+    };
+
+    // recargue automatico
+    const fetchWithRetry = async (fn, retries = 3, delayMs = 1000) => {
+      for (let i = 0; i < retries; i++) {
+        try {
+          return await fn();
+        } catch (err) {
+          if (i < retries - 1) {
+            await new Promise(res => setTimeout(res, delayMs));
+          } else {
+            throw err;
+          }
+        }
+      }
+    };
+
 
     
-    // useEffect para el carge del perfil
  useEffect(() => {
     const getPerfilData = async () => {
       try {
-        const dataPerfil = await getPerfil();
+        // const dataPerfil = await getPerfil();
+        const dataPerfil = await fetchWithRetry(() => getPerfil(), 3, 1500);
+        await delay(3000)
         setPerfil(dataPerfil[0]);
       } catch (err) {
+        console.error("Error al obtener perfil:", err);
+        await delay(3000);
+        setError("No se pudo cargar el perfil.");
       } finally {
         setLoading(false);
       }
@@ -29,29 +56,36 @@ const HomePageComponent = () => {
     getPerfilData();
 }, []);
 
- if (loading) {
-    return (
+if (loading) {
+  return (
     <div style={{ textAlign: "center", marginTop: "2rem" }}>
       <PropagateLoader color="#36d7b7" />
     </div>
   );
-  }
+}
 
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  if (!perfil) {
-     return (
-    <div style={{ textAlign: "center",  }}>
-      <PropagateLoader color="#36d7b7" />
+if (error) {
+  return (
+    <div
+      style={{
+        textAlign: "center",
+        marginTop: "2rem",
+        color: "#ff4d4f",
+        fontSize: "1.2rem",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "1rem"
+      }}
+    >
+      <FaExclamationTriangle size={40} />
+      <span>{error}</span>
+      <button onClick={() => window.location.reload()} className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full">
+        Reintentar
+      </button>
     </div>
   );
-  }
-
-
-
-
+}
   //   // useEfeect para el carge de las noticias
   //   useEffect(() => {
   //       (async () => {
@@ -96,11 +130,11 @@ const HomePageComponent = () => {
                         </div>
                       ) : (
                         <>
-                          <div className="w-full md:w-1/2 text-center md:text-left">
+                          <div className="max-w-xl md:w-1/2 text-center md:text-left">
                             <h1 className="text-4xl font-bold font-poppins text-white">
                               I'm <span className="text-cyan-400">{perfil.nombre}</span>
                             </h1>
-                            <p className="text-x">{perfil.descripcion}</p>
+                            <p title={perfil.descripcion} className="text-xl  font-sans text-white">{truncateText(perfil.descripcion, 400)}</p>
                             <a
                               href="/cv.pdf"
                               download="cv.pdf"
@@ -120,7 +154,7 @@ const HomePageComponent = () => {
                               />
                             ) : (
                               <img
-                                className="w-[250px] md:w-[400px] h-[350px] md:h-[550px] object-cover rounded-lg border-4 border-cyan-500"
+                                className="w-[180px] h-[250px] sm:w-[250px] sm:h-[350px] md:w-[400px] md:h-[550px] object-cover rounded-lg border-4 border-cyan-500"
                                 src={Imagen}
                                 alt="Imagen por defecto"
                               />
