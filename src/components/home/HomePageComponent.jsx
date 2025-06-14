@@ -7,6 +7,7 @@ import DesarrolloWeb from "../../images/DesarrolloWeb.jpeg"
 import { getNoticias } from "../../api/newsApi";
 import { getPerfil } from "../../api/perfil";
 import { ClimbingBoxLoader, PropagateLoader, PacmanLoader } from "react-spinners";
+import { Typewriter } from "../../hooks/Typewriter/Typewriter.jsx"
 import { FaExclamationTriangle } from "react-icons/fa";
 
 const HomePageComponent = () => {
@@ -115,11 +116,14 @@ if (error) {
 
 
     return (
-        <main className="container mx-auto">
-            <div className="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3">
+        <main className="ontainer mx-auto overflow-x-hidden">
+            {/* <div className="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3">
                 <div className="w-[45vw] sm:w-[25vw] md:w-[20vw] lg:w-[30vw] aspect-square  rounded-full bg-cyan-500 "></div>
+            </div> */}
+            <div className="absolute top-0 left-0 translate-x-[-50%] translate-y-[-40%]">
+              <div className="w-[45vw] sm:w-[30vw] md:w-[25vw] aspect-square rounded-full bg-cyan-500" />
             </div>
-            <section className="w-full  mx-auto ">
+           <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <article className="flex flex-col-reverse md:flex-row  items-center gap-4 rounded-lg shadow-md justify-between">
                     {loading || !perfil ? (
                         <div className="animate-pulse w-full">
@@ -132,12 +136,11 @@ if (error) {
                         <>
                           <div className="w-full max-w-xl px-4 sm:px-6 md:w-1/2 text-center md:text-left">
                             <h1 className="text-3xl sm:text-4xl font-bold font-poppins text-white">
-                              I'm <span className="text-cyan-400">{perfil.nombre}</span>
+                             {!loading && perfil?.nombre && (
+                                   <Typewriter text={`${perfil.nombre}`} />
+                                )}
                             </h1>
-                            <p
-                              title={perfil.descripcion}
-                              className="text-base sm:text-lg font-sans text-white mt-2"
-                            >
+                            <p title={perfil.descripcion} className="text-base sm:text-lg font-sans text-white mt-2" >
                               {truncateText(perfil.descripcion, 400)}
                             </p>
                             <a
@@ -159,7 +162,7 @@ if (error) {
                               />
                             ) : (
                               <img
-                                className="w-[180px] h-[250px] sm:w-[250px] sm:h-[350px] md:w-[400px] md:h-[550px] object-cover rounded-lg border-4 border-cyan-500"
+                                className="w-[180px] h-[250px] sm:w-[200px] sm:h-[300px] md:w-[350px] md:h-[500px] max-w-[90vw] object-cover rounded-lg border-4 border-cyan-500"
                                 src={Imagen}
                                 alt="Imagen por defecto"
                               />
