@@ -2,27 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Evita zoom automático y mantiene escala uniforme */
 html {
-  font-size: 16px;
-  background-color: black;
-  color: white;
-  zoom: 1;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Asegura consistencia del cuerpo del documento */
-body {
-  font-size: 1rem;
-  line-height: 1.5;
-  font-family: system-ui, sans-serif;
+    background-color: black;
+    color: white;
 }
