@@ -1,92 +1,38 @@
-import React, { useState, useEffect } from "react";
-import { motion } from 'framer-motion';
+import React from "react";
 import Imagen from "../../images/PerfilImage.png"
-import DataAnalitic from "../../images/DataAnalitic.png"
-import DisenioGrafico from "../../images/DiseñoGrafico.jpg"
-import DesarrolloWeb from "../../images/DesarrolloWeb.jpeg"
-import { getNoticias } from "../../api/newsApi";
-import { getPerfil } from "../../api/perfil";
-import { ClimbingBoxLoader, PropagateLoader, PacmanLoader } from "react-spinners";
+import {  PropagateLoader } from "react-spinners";
 import { Typewriter } from "../../hooks/Typewriter/Typewriter.jsx"
 import { FaExclamationTriangle } from "react-icons/fa";
+import { usePerfil } from "../../hooks/usePerfil/Useperfil.jsx";
 
 const HomePageComponent = () => {
-    const [loading, setLoading] = useState(true);
-    const [noticias, setNoticias] = useState([]);
-    const [perfil, setPerfil] = useState(null);
-    const [error, setError] = useState(null);
-    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
+    const { perfil, loading, error } = usePerfil();
+    
     const truncateText = (text, maxLength) => {
       if (!text) return "";
       return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
     };
 
-    // recargue automatico
-    const fetchWithRetry = async (fn, retries = 3, delayMs = 1000) => {
-      for (let i = 0; i < retries; i++) {
-        try {
-          return await fn();
-        } catch (err) {
-          if (i < retries - 1) {
-            await new Promise(res => setTimeout(res, delayMs));
-          } else {
-            throw err;
-          }
-        }
-      }
-    };
+    if (loading) {
+      return (
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+          <PropagateLoader color="#36d7b7" />
+        </div>
+      );
+    }
 
-
-
- useEffect(() => {
-    const getPerfilData = async () => {
-      try {
-        // const dataPerfil = await getPerfil();
-        const dataPerfil = await fetchWithRetry(() => getPerfil(), 3, 1500);
-        await delay(50)
-        setPerfil(dataPerfil[0]);
-      } catch (err) {
-        console.error("Error al obtener perfil:", err);
-        await delay(50);
-        setError("No se pudo cargar el perfil.");
-      } finally {
-        setLoading(false);
-      }
-    };
-    getPerfilData();
-}, []);
-
-if (loading) {
-  return (
-    <div style={{ textAlign: "center", marginTop: "2rem" }}>
-      <PropagateLoader color="#36d7b7" />
-    </div>
-  );
-}
-
-if (error) {
-  return (
-    <div
-      style={{
-        textAlign: "center",
-        marginTop: "2rem",
-        color: "#ff4d4f",
-        fontSize: "1.2rem",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "1rem"
-      }}
-    >
-      <FaExclamationTriangle size={40} />
-      <span>{error}</span>
-      <button onClick={() => window.location.reload()} className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full">
-        Reintentar
-      </button>
-    </div>
-  );
-}
+    if (error) {
+      return (
+        <div
+          style={{ textAlign: "center", marginTop: "2rem", color: "#ff4d4f", fontSize: "1.2rem", display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }} >
+          <FaExclamationTriangle size={40} />
+          <span>{error}</span>
+          <button onClick={() => window.location.reload()} className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full">
+            Reintentar
+          </button>
+        </div>
+      );
+    }
   //   // useEfeect para el carge de las noticias
   //   useEffect(() => {
   //       (async () => {
@@ -172,26 +118,6 @@ if (error) {
                         </>
                       )}
                 </article>
-                {/* <article className="p-4 rounded-lg mb-4 grid grid-flow-col grid-rows-3 gap-4 ">
-                    {loading ? (
-                    <div className="animate-pulse space-y-2">
-                        <div className="h-6 bg-gray-300 rounded w-3/4" />
-                        <div className="h-4 bg-gray-300 rounded w-5/6" />
-                    </div>
-                    ) : (
-                    <>
-                      <div className=" p-2 row-span-3 ... rounded-lg  shadow-xl ... h-[425px] ">
-                        <img src={DataAnalitic} alt="Imagen de interes" className="w-full h-full object-cover rounded-lg " />
-                      </div>
-                      <div className=" p-2 col-span-2 ... rounded-lg shadow-xl ... justify-end">
-                        <img src={DisenioGrafico} alt="Imagen de interes" className="w-full h-full object-cover rounded-lg " />
-                      </div>
-                      <div className=" p-2 col-span-2 row-span-2 h-64 rounded-lg shadow-xl">
-                        <img src={DesarrolloWeb} alt="Imagen de interes" className="w-full h-full object-cover rounded-lg " />
-                      </div>
-                    </>
-                    )}
-                </article> */}
             </section>
             {/* <aside className="w-[20%] p-4 border-l border-blue-500">
                 {noticias.map((n, i) => (
@@ -210,4 +136,3 @@ if (error) {
 };
 
 export default HomePageComponent;
-
