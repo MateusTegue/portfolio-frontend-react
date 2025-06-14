@@ -162,7 +162,7 @@ if (error) {
                               />
                             ) : (
                               <img
-                                className="w-[180px] h-[250px] sm:w-[200px] sm:h-[300px] md:w-[350px] md:h-[500px] max-w-[90vw] object-cover rounded-lg border-4 border-cyan-500"
+                                className="w-[180px] h-[250px] sm:w-[200px] sm:h-[300px] md:w-[350px] md:h-[500px] max-w-[50vw] object-cover rounded-lg border-b-4 border-cyan-500"
                                 src={Imagen}
                                 alt="Imagen por defecto"
                               />
