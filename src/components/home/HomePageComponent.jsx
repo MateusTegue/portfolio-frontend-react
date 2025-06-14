@@ -151,10 +151,10 @@ if (error) {
                               Descargar CV
                             </a>
                           </div>
-                          <div className="w-full sm:w-1/2 flex justify-center">
+                          <div className="flex justify-center items-center">
                             {perfil.imagen?.data ? (
                               <img
-                                className="w-[250px] md:w-[400px] h-[350px] md:h-[550px] object-cover rounded-lg border-4 border-cyan-500"
+                                className="w-[180px] h-[250px] sm:w-[200px] sm:h-[300px] md:w-[350px] md:h-[500px] max-w-[90vw] object-cover rounded-lg border-4 border-cyan-500"
                                 src={`data:${perfil.imagen.contentType};base64,${btoa(
                                   String.fromCharCode(...perfil.imagen.data.data)
                                 )}`}
