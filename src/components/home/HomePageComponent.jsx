@@ -37,17 +37,17 @@ const HomePageComponent = () => {
     };
 
 
-    
+
  useEffect(() => {
     const getPerfilData = async () => {
       try {
         // const dataPerfil = await getPerfil();
         const dataPerfil = await fetchWithRetry(() => getPerfil(), 3, 1500);
-        await delay(3000)
+        await delay(50)
         setPerfil(dataPerfil[0]);
       } catch (err) {
         console.error("Error al obtener perfil:", err);
-        await delay(3000);
+        await delay(50);
         setError("No se pudo cargar el perfil.");
       } finally {
         setLoading(false);
@@ -93,7 +93,7 @@ if (error) {
   //         setNoticias(lista);
   //       })();
   //     }, []);
-    
+
   //     if (noticias === null) {
   //       return (
   //         <aside className="w-1/4 bg-white p-4 border-l border-gray-300 space-y-4">
@@ -118,8 +118,8 @@ if (error) {
         <main className="container mx-auto">
             <div className="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3">
                 <div className="w-[45vw] sm:w-[25vw] md:w-[20vw] lg:w-[30vw] aspect-square  rounded-full bg-cyan-500 "></div>
-            </div>            
-            <section className="  mx-auto ">
+            </div>
+            <section className="w-full max-w-screen-xl px-4 sm:px-6 lg:px-8 mx-auto ">
                 <article className="flex flex-col-reverse md:flex-row  items-center gap-4 rounded-lg shadow-md justify-between">
                     {loading || !perfil ? (
                         <div className="animate-pulse w-full">
@@ -165,7 +165,7 @@ if (error) {
                               />
                             )}
                           </div>
-                          
+
                         </>
                       )}
                 </article>
