@@ -1,7 +1,6 @@
 // App.jsx
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ProjectsPage from "./pages/ProjectPage";
@@ -10,42 +9,19 @@ import AboutPage from "./pages/AboutPage";
 import HeaderComponent from "./components/header/HeaderComponent";
 import FooterComponent from "./components/footer/FooterComponent";
 
-const PageWrapper = ({ children }) => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.6, ease: "easeInOut" }}
-    className="flex-grow"
-  >
-    {children}
-  </motion.div>
-);
-
-const AnimatedRoutes = () => {
-  const location = useLocation();
-
-  return (
-    <AnimatePresence exitBeforeEnter>
-      <Routes key={location.pathname} location={location}>
-        <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
-        <Route path="/Home" element={<PageWrapper><HomePage /></PageWrapper>} />
-        <Route path="/Login" element={<PageWrapper><LoginPage /></PageWrapper>} />
-        <Route path="/Projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
-        <Route path="/Educacion" element={<PageWrapper><CertificationsPage /></PageWrapper>} />
-        <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
-        {/* ...más rutas */}
-      </Routes>
-    </AnimatePresence>
-  );
-};
-
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Router>
         <HeaderComponent />
-        <AnimatedRoutes />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/Home" element={<HomePage />} />
+          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/Projects" element={<ProjectsPage />} />
+          <Route path="/Educacion" element={<CertificationsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
         <FooterComponent />
       </Router>
     </div>
@@ -53,4 +29,72 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // App.jsx
+// import React from "react";
+// import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-router-dom";
+// import { AnimatePresence, motion } from "framer-motion";
+// import HomePage from "./pages/HomePage";
+// import LoginPage from "./pages/LoginPage";
+// import ProjectsPage from "./pages/ProjectPage";
+// import CertificationsPage from "./pages/CertificationsPages";
+// import AboutPage from "./pages/AboutPage";
+// import HeaderComponent from "./components/header/HeaderComponent";
+// import FooterComponent from "./components/footer/FooterComponent";
+
+// const PageWrapper = ({ children }) => (
+//   <motion.div
+//     initial={{ opacity: 0 }}
+//     animate={{ opacity: 1 }}
+//     exit={{ opacity: 0 }}
+//     transition={{ duration: 0.6, ease: "easeInOut" }}
+
+//   >
+//     {children}
+//   </motion.div>
+// );
+
+// const AnimatedRoutes = () => {
+//   const location = useLocation();
+
+//   return (
+//     <AnimatePresence exitBeforeEnter>
+//       <Routes key={location.pathname} location={location}>
+//         <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
+//         <Route path="/Home" element={<PageWrapper><HomePage /></PageWrapper>} />
+//         <Route path="/Login" element={<PageWrapper><LoginPage /></PageWrapper>} />
+//         <Route path="/Projects" element={<PageWrapper><ProjectsPage /></PageWrapper>} />
+//         <Route path="/Educacion" element={<PageWrapper><CertificationsPage /></PageWrapper>} />
+//         <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
+//         {/* ...más rutas */}
+//       </Routes>
+//     </AnimatePresence>
+//   );
+// };
+
+// const App = () => {
+//   return (
+//     <div className="flex flex-col min-h-screen">
+//       <Router>
+//         <HeaderComponent />
+//         <AnimatedRoutes />
+//         <FooterComponent />
+//       </Router>
+//     </div>
+//   );
+// };
+
+// export default App;
 

@@ -29,11 +29,11 @@ export const usePerfil = () => {
       const getPerfilData = async () => {
         try {
           const dataPerfil = await fetchWithRetry(() => getPerfil(), 3, 1500);
-          await delay(50)
+          await delay(1)
           setPerfil(dataPerfil[0]);
         } catch (err) {
           console.error("Error al obtener perfil:", err);
-          await delay(50);
+          await delay(1);
           setError("No se pudo cargar el perfil.");
         } finally {
           setLoading(false);

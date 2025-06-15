@@ -3,13 +3,25 @@ import { getAllProjects } from "../../api/projects.js";
 import { getRandomColor }  from "../../colors/colorImages.js"
 import { usePerfil } from "../../hooks/usePerfil/Useperfil.jsx";
 import Imagen from "../../images/PerfilImage.png"
-
+import { ProjectModal } from "../projectsModal/ProjectModal.jsx"
 const ProjectsComponent = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const [ error, setError ] = useState(null);
     const { perfil } = usePerfil();
     
+    const [isModalOpen, setIsModalOpen ] = useState([]);
+    const [selectedProject, setSelectedProject] = useState(null);
+
+    const openModal = (project) => {
+      setSelectedProject(project);
+      setIsModalOpen(true);
+    }
+
+    const closeModal = () => {
+      setIsModalOpen(false);
+      setSelectedProject(null);
+    }
 
     useEffect(() => {
       const getAllProjectsData = async () => {
@@ -89,15 +101,21 @@ const ProjectsComponent = () => {
                           </div>
                         )}
                         </div>
-                        <div className="mt-4">
+                        <div className="mt-4 flex gap-2 ">
                           <a
                             href={project.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block text-center bg-cyan-500 text-white py-2 rounded-md hover:bg-cyan-600 transition-colors"
+                            className="w-1/2 text-center bg-cyan-500 text-white py-2 rounded-md hover:bg-cyan-600 transition-colors"
                           >
-                            Ver más
+                            codigo
                           </a>
+                          <button
+                          onClick={() => openModal(project)}
+                          className="w-full text-center bg-cyan-500 text-white py-2 rounded-md hover:bg-cyan-600 transition-colors"
+                        >
+                          Leer más
+                        </button>
                         </div>
                       </div>
                     </div>
@@ -107,6 +125,7 @@ const ProjectsComponent = () => {
                   <p className="col-span-full text-center py-10">No hay proyectos para mostrar.</p>
                 )}
               </div>
+              <ProjectModal project={selectedProject} isOpen={isModalOpen} onClose={closeModal} />
           </section>
     )
 }
