@@ -28,10 +28,20 @@ const LoginComponent = () => {
     try {
       const userData = await login(email, password);
       localStorage.setItem('token', userData.token); // Guardar el token en localStorage
-      localStorage.setItem('user', JSON.stringify({ id: userData.id, email: userData.email }));
+
+      localStorage.setItem('user', JSON.stringify({ id: userData.id, email: userData.email, role: userData.role }));
+
       setError(''); // Limpiar errores
       alert('Inicio de sesión exitoso');
-    //   navigate('/Projects'); // Redirigir al panel de administrador
+
+      // navigate('/Projects'); // Redirigir al panel de administrador
+      if (userData.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/Home')
+      }
+
+
     } catch (err) {
       setError(err.message || 'Error al iniciar sesión');
     }

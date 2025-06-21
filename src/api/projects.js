@@ -18,18 +18,35 @@ export const getAllProjects = async () => {
     }
 }
 
+// registrar proyectos
+export const createProject = async ( data ) => {
+  try {
+    const token = localStorage.getItem('token'); 
+    const response = await axios.post(`${API_KEY}/api/proyecto`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`, // 👈 Aquí se envía el token
+      },
+      });
+    console.log(data)
+    return response;
+  } catch (error) {
+       console.error('Error al registrar el proyecto:', error);
+       throw error;
+  }
+}
+
+
 
 // obtener proyectos por id 
-
-export const getProjectId = async () => {
-    try {
-        const response = await axios.get(`${API_KEY}/api/proyecto/:id`);
-        return response.data;
-    } catch (error) {
-        if(error.response){
-            throw new Error(error.response.data.message || "Error al obtener el proyecto")
-        } else {
-            throw new Error("Error interno del servidor:" + error.message)
-        }
+export const deleteProjectById = async (id) => {
+  try {
+    const response = await axios.delete(`${API_KEY}/api/proyecto/${id}`);
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      throw new Error(error.response.data.message || "Error al eliminar el proyecto");
+    } else {
+      throw new Error("Error interno del servidor: " + error.message);
     }
-}
+  }
+};

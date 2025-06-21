@@ -10,7 +10,7 @@ export const login = async (email, password) => {
         password,
       },
       {
-        withCredentials: true, // solo si usas cookies
+        withCredentials: true,
       }
     );
     return response.data;
