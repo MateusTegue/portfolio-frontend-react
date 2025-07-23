@@ -28,7 +28,7 @@ export const usePerfil = () => {
    useEffect(() => {
       const getPerfilData = async () => {
         try {
-          const dataPerfil = await fetchWithRetry(() => getPerfilPublic(), 3, 1500);
+          const dataPerfil = await fetchWithRetry(() => getPerfilPublic(), 3, 1000);
           await delay(1)
           setPerfil(dataPerfil[0]);
         } catch (err) {

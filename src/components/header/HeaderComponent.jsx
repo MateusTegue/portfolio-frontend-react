@@ -55,21 +55,22 @@ const HeaderComponent = () => {
                             Proyectos
                         </Link>
                         </li>
-                        <li>
+                        {/* <li>
                         <Link to="/Educacion" className="block text-white hover:text-cyan-400 transition">
                             Educación
                         </Link>
-                        </li>
-                        <li>
-                        <Link to="/about" className="block text-white hover:text-cyan-400 transition">
-                            Blog
-                        </Link>
-                        </li>
+                        </li> */}
                         <li>
                         <Link to="/Experiences" className="block text-white hover:text-cyan-400 transition">
                             Experiencia
                         </Link>
                         </li>
+                        <li>
+                        <Link to="/Blog" className="block text-white hover:text-cyan-400 transition">
+                            Blog
+                        </Link>
+                        </li>
+                        
                     </ul>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation,} from "react-route
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ProjectsPage from "./pages/ProjectPage";
-import CertificationsPage from "./pages/CertificationsPages";
+// import CertificationsPage from "./pages/CertificationsPages";
 import AboutPage from "./pages/AboutPage";
 import HeaderComponent from "./components/header/HeaderComponent";
 import FooterComponent from "./components/footer/FooterComponent";
@@ -27,8 +27,8 @@ const AppContent = () => {
         <Route path="/Home" element={<HomePage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Projects" element={<ProjectsPage />} />
-        <Route path="/Educacion" element={<CertificationsPage />} />
-        <Route path="/about" element={<AboutPage />} />
+        {/* <Route path="/Educacion" element={<CertificationsPage />} /> */}
+        <Route path="/Blog" element={<AboutPage />} />
 
         {/* Panel admin con protección */}
         {/* <Route path="/admin" element={ <PrivateRouteComponent> <AdminPage /> </PrivateRouteComponent> } /> */}
@@ -63,46 +63,6 @@ const App = () => {
 
 export default App;
 
-// // App.jsx
-// import React from "react";
-// import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-// import HomePage from "./pages/HomePage";
-// import LoginPage from "./pages/LoginPage";
-// import ProjectsPage from "./pages/ProjectPage";
-// import CertificationsPage from "./pages/CertificationsPages";
-// import AboutPage from "./pages/AboutPage";
-// import HeaderComponent from "./components/header/HeaderComponent";
-// import FooterComponent from "./components/footer/FooterComponent";
-// import AdminPage from "./pages/Admin/AdminPage/AdminPage";
-// import PrivateRouteComponent from "./components/PrivateRoute/PrivateRouteComponent";
-
-// const App = () => {
-//   const location = useLocation();
-//   const isAdminRoute = location.pathname.startsWith("/admin")
-
-
-//   return (
-//     <div className="flex flex-col min-h-screen">
-//       {!isAdminRoute && <HeaderComponent />}
-//       <Router>
-//         <HeaderComponent />
-//         <Routes>
-//           <Route path="/" element={<HomePage />} />
-//           <Route path="/Home" element={<HomePage />} />
-//           <Route path="/Login" element={<LoginPage />} />
-//           <Route path="/Projects" element={<ProjectsPage />} />
-//           <Route path="/Educacion" element={<CertificationsPage />} />
-//           <Route path="/about" element={<AboutPage />} />
-
-//           <Route path="/admin" element={<PrivateRouteComponent> <AdminPage /> </PrivateRouteComponent>}/>
-//         </Routes>
-//         <FooterComponent />
-//       </Router>
-//     </div>
-//   );
-// };
-
-// export default App;
 
 
 

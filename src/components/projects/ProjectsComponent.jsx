@@ -4,6 +4,7 @@ import { getRandomColor }  from "../../colors/colorImages.js"
 import { usePerfil } from "../../hooks/usePerfil/Useperfil.jsx";
 import Imagen from "../../images/PerfilImage.png"
 import { ProjectModal } from "../projectsModal/ProjectModal.jsx"
+
 const ProjectsComponent = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -12,6 +13,9 @@ const ProjectsComponent = () => {
     
     const [isModalOpen, setIsModalOpen ] = useState([]);
     const [selectedProject, setSelectedProject] = useState(null);
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const projectsPerPage = 4; 
 
     const openModal = (project) => {
       setSelectedProject(project);
@@ -37,6 +41,15 @@ const ProjectsComponent = () => {
       getAllProjectsData();
     }, []);
 
+    const indexOfLastProject = currentPage * projectsPerPage;
+    const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+    const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
+
+    const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+
     if (loading) {
         return <div className="text-center text-gray-500">Cargando proyectos...</div>;
     }
@@ -50,7 +63,7 @@ const ProjectsComponent = () => {
     return (
         <section className="mx-auto max-w-7xl px-4 py-8  shadow-lg  mt-32">
               <div className="grid grid-cols-1 sm:grid-cols-2  gap-6 w-full">
-                {projects.map((project) => (
+                {currentProjects.map((project) => (
                   <div key={project._id} className="w-full">
                     <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-lg overflow-hidden w-full h-full">
                       {/* Imagen */}
@@ -124,6 +137,23 @@ const ProjectsComponent = () => {
                 {projects.length === 0 && (
                   <p className="col-span-full text-center py-10">No hay proyectos para mostrar.</p>
                 )}
+              </div>
+              <div className="flex justify-center mt-6">
+                <nav className="inline-flex">
+                  {[...Array(totalPages)].map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => paginate(index + 1)}
+                      className={`mx-1 px-3 py-1 rounded-md ${
+                        currentPage === index + 1
+                          ? "bg-cyan-600 text-white"
+                          : "bg-gray-200 text-gray-700 hover:bg-cyan-100"
+                      }`}
+                    >
+                      {index + 1}
+                    </button>
+                  ))}
+                </nav>
               </div>
               <ProjectModal project={selectedProject} isOpen={isModalOpen} onClose={closeModal} />
           </section>

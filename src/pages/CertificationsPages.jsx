@@ -1,12 +1,12 @@
-import React from "react";
-import CertificationsComponent from "../components/Certifications/CertificationsComponents";
+// import React from "react";
+// import CertificationsComponent from "../components/Certifications/CertificationsComponents";
 
-const CertificationsPage = () => {
-    return (
-        <>
-          <CertificationsComponent />
-        </>
-    )
-}
+// const CertificationsPage = () => {
+//     return (
+//         <>
+//           <CertificationsComponent />
+//         </>
+//     )
+// }
 
-export default CertificationsPage ;
+// export default CertificationsPage ;
