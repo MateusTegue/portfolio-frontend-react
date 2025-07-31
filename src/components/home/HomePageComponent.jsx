@@ -63,9 +63,7 @@ const HomePageComponent = () => {
 
     return (
         <main className="ontainer mx-auto overflow-x-hidden">
-            {/* <div className="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3">
-                <div className="w-[45vw] sm:w-[25vw] md:w-[20vw] lg:w-[30vw] aspect-square  rounded-full bg-cyan-500 "></div>
-            </div> */}
+            
             <div className="absolute top-0 left-0 translate-x-[-50%] translate-y-[-40%]">
               <div className="w-[45vw] sm:w-[30vw] md:w-[25vw] aspect-square rounded-full bg-cyan-500" />
             </div>

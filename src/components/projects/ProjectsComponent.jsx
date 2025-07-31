@@ -15,7 +15,9 @@ const ProjectsComponent = () => {
     const [selectedProject, setSelectedProject] = useState(null);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const projectsPerPage = 4; 
+    
+    const [projectsPerPage, setProjectsPerPage] = useState(4);
+
 
     const openModal = (project) => {
       setSelectedProject(project);
@@ -40,6 +42,21 @@ const ProjectsComponent = () => {
       };
       getAllProjectsData();
     }, []);
+
+    useEffect(() => {
+  const updateProjectsPerPage = () => {
+    if (window.innerWidth < 640) {
+      setProjectsPerPage(2); 
+    } else {
+      setProjectsPerPage(4); 
+    }
+  };
+
+  updateProjectsPerPage(); 
+
+  window.addEventListener('resize', updateProjectsPerPage);
+  return () => window.removeEventListener('resize', updateProjectsPerPage);
+}, []);
 
     const indexOfLastProject = currentPage * projectsPerPage;
     const indexOfFirstProject = indexOfLastProject - projectsPerPage;
