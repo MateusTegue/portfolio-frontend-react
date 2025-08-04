@@ -82,22 +82,7 @@ const ProjectsComponent = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2  gap-6 w-full">
                 {currentProjects.map((project) => (
                   <div key={project._id} className="w-full">
-                    <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-lg overflow-hidden w-full h-full">
-                      {/* Imagen */}
-                      {project.imagen?.data ? (
-                        <div
-                          className="h-48 lg:h-auto lg:w-48 flex-none bg-cover bg-center"
-                          style={{
-                            backgroundImage: `url(data:${project.imagen.contentType};base64,${Buffer.from(project.imagen.data).toString('base64')})`,
-                          }}
-                        ></div>
-                      ) : (
-                        <div className={`h-48 lg:h-auto lg:w-48 flex-none flex items-center justify-center text-white text-4xl font-bold ${getRandomColor()}`}>
-                          {project.titulo?.charAt(0).toUpperCase()}
-                        </div>
-                      )}
-
-                      {/* Contenido */}
+                    <div className="flex  bg-white shadow-lg rounded-md overflow-hidden w-full h-full">
                       <div className="p-4 flex flex-col justify-between w-full">
                         <div>
                           <h3 className="text-lg font-semibold text-gray-800">{project.titulo}</h3>

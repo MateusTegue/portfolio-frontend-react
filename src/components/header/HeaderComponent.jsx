@@ -61,7 +61,7 @@ const HeaderComponent = () => {
                         </Link>
                         </li> */}
                         <li>
-                        <Link to="/Experiences" className="block text-white hover:text-cyan-400 transition">
+                        <Link to="/Experience" className="block text-white hover:text-cyan-400 transition">
                             Experiencia
                         </Link>
                         </li>

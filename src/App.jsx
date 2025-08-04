@@ -1,11 +1,11 @@
 import React from "react";
-import { Navigate } from "react-router-dom"; 
+import { Navigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route, useLocation,} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ProjectsPage from "./pages/ProjectPage";
-// import CertificationsPage from "./pages/CertificationsPages";
-import AboutPage from "./pages/AboutPage";
+import ExpriencePage from "./pages/ExperiencePage";
+import BlogPage from "./pages/BlogPage";
 import HeaderComponent from "./components/header/HeaderComponent";
 import FooterComponent from "./components/footer/FooterComponent";
 
@@ -14,6 +14,7 @@ import PrivateRouteComponent from "./components/PrivateRoute/PrivateRouteCompone
 import AdminPage from "./pages/Admin/AdminPage/AdminPage";
 import PageProjectAdmin from "./pages/Admin/AdminPage/ProjectPageAdmin";
 import PerfilAdminPage from "./pages/Admin/AdminPage/PerfilAdminPage";
+
 const AppContent = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin");
@@ -27,21 +28,12 @@ const AppContent = () => {
         <Route path="/Home" element={<HomePage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Projects" element={<ProjectsPage />} />
-        {/* <Route path="/Educacion" element={<CertificationsPage />} /> */}
-        <Route path="/Blog" element={<AboutPage />} />
+        <Route path="/Experience" element={<ExpriencePage />} />
+        <Route path="/Blog" element={<BlogPage />} />
 
-        {/* Panel admin con protección */}
-        {/* <Route path="/admin" element={ <PrivateRouteComponent> <AdminPage /> </PrivateRouteComponent> } /> */}
         {/* Rutas protegidas anidadas */}
-        <Route
-          path="/admin"
-          element={
-            <PrivateRouteComponent>
-              <AdminPage />
-            </PrivateRouteComponent>
-          }
-        >
-          <Route index element={<Navigate to="/admin" replace />} /> {/* Redirección por defecto */}
+        <Route path="/admin" element={<PrivateRouteComponent>  <AdminPage /></PrivateRouteComponent>}>
+          <Route index element={<Navigate to="/admin" replace />} />
           <Route path="projects" element={<PageProjectAdmin />} />
           <Route path="educacion" element={<PerfilAdminPage />} />
           <Route path="perfil" element={<PerfilAdminPage />} />
@@ -62,11 +54,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-
-
-
-
