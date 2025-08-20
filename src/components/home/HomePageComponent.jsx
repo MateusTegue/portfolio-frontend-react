@@ -88,8 +88,8 @@ const HomePageComponent = () => {
                               {truncateText(perfil.descripcion, 400)}
                             </p>
                             <a
-                              href="/CV_Mateus.pdf"
-                              download="CV_Mateus.pdf"
+                              href="/CV_MateusTegue.pdf"
+                              download="CV_MateusTegue.pdf"
                               className="mt-4 px-4 py-2 bg-cyan-500 text-white rounded-3xl hover:bg-cyan-600 transition-colors inline-block"
                             >
                               Descargar CV
