@@ -3,12 +3,10 @@ import PerfilAdminComponent from "../../../components/Admin/PerfilAdmin/PerfilAd
 
 const PerfilAdminPage = () => {
     return (
-         <>
-            <div>
-                <PerfilAdminComponent />
-            </div>
-        </>
-    )
-}
+        <div className="h-full">
+            <PerfilAdminComponent />
+        </div>
+    );
+};
 
 export default PerfilAdminPage;
