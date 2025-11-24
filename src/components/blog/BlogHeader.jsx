@@ -11,7 +11,7 @@ const BlogHeader = () => {
       <p className="text-gray-400 font-poppins">Compartiendo conocimientos y experiencias</p>
     </motion.div>
   );
-};
+}; 
 
 export default BlogHeader;
 
