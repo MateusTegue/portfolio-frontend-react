@@ -17,6 +17,7 @@ import AdminPage from "./pages/Admin/AdminPage/AdminPage";
 import DashboardPage from "./pages/Admin/AdminPage/DashboardPage";
 import PageProjectAdmin from "./pages/Admin/AdminPage/ProjectPageAdmin";
 import PerfilAdminPage from "./pages/Admin/AdminPage/PerfilAdminPage";
+import PageBlogAdmin from "./pages/Admin/AdminPage/PageBlogAdmin";
 
 const AppContent = () => {
   const location = useLocation();
@@ -38,6 +39,7 @@ const AppContent = () => {
         <Route path="/admin" element={<PrivateRouteComponent>  <AdminPage /></PrivateRouteComponent>}>
           <Route index element={<DashboardPage />} />
           <Route path="projects" element={<PageProjectAdmin />} />
+          <Route path="blog" element={<PageBlogAdmin />} />
           <Route path="educacion" element={<PerfilAdminPage />} />
           <Route path="perfil" element={<PerfilAdminPage />} />
         </Route>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaHome, FaUser, FaProjectDiagram, FaSignOutAlt, FaBook } from "react-icons/fa";
+import { FaHome, FaUser, FaProjectDiagram, FaSignOutAlt, FaBook, FaBlog } from "react-icons/fa";
 import { usePerfil } from "../../hooks/usePerfil/Useperfil.jsx"; 
 import Imagen from "../../images/PerfilImage.png"
 
@@ -14,6 +14,7 @@ const SidebarComponent = () => {
     { label: "Perfil", path: "/admin/perfil", icon: <FaUser /> },
     { label: "Inicio", path: "/admin", icon: <FaHome /> },
     { label: "Proyectos", path: "/admin/projects", icon: <FaProjectDiagram /> },
+    { label: "Blog", path: "/admin/blog", icon: <FaBlog /> },
     { label: "Educacion", path: "/admin/educacion", icon: <FaBook />},
   ];
 
