@@ -101,7 +101,7 @@ const BlogComponent = () => {
     }
     
     return (
-        <section className="container container-fluid relative mx-auto px-4 py-12 lg:py-20 mt-24 bg-red-500">
+        <section className="container container-fluid relative mx-auto px-4 py-12 lg:py-20 mt-24">
             <BlogHeader />
 
             {/* Layout de dos columnas: Main Content (2/3) y Sidebar (1/3) */}
