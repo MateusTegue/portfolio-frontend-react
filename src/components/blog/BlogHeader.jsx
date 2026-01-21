@@ -8,7 +8,6 @@ const BlogHeader = () => {
       animate={{ opacity: 1, y: 0 }}
       className="text-center mb-12"
     >
-      <p className="text-gray-400 font-poppins">Compartiendo conocimientos y experiencias</p>
     </motion.div>
   );
 }; 
