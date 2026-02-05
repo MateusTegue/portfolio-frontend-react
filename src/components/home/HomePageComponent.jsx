@@ -110,8 +110,8 @@ const HomePageComponent = () => {
                               className="flex flex-col sm:flex-row gap-4 pt-4"
                             >
                               <a
-                                href="/CV_MateusTegue.pdf"
-                                download="CV_MateusTegue.pdf"
+                                href="/CV_MATEUS_TEGUE.pdf"
+                                download="CV_MATEUS_TEGUE.pdf"
                                 className="group relative px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-full hover:from-cyan-400 hover:to-cyan-500 transition-all duration-300 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 flex items-center justify-center gap-2"
                               >
                                 <FaDownload className="group-hover:animate-bounce" />
